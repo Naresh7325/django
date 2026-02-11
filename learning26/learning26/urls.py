@@ -34,6 +34,8 @@ urlpatterns = [
 
     path('student/',include("student.urls")),
     path('testapp/',include("testapp.urls")),
+    path('employee/',include("employee.urls")),
+    
     
 ]
 

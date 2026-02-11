@@ -1,0 +1,99 @@
+<h1>EMPLOYEE FILTER </h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Filter</title>
+</head>
+<body>
+<h2>query 1</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Post</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emp in query1  %}
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.join_date}}</td>
+            <td>{{emp.post}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>qury 2</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Post</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for emp in query2  %}
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.join_date}}</td>
+            <td>{{emp.post}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>query 3</h2>
+{% for emp in query3  %}
+    {{emp.id}}
+    {{emp.name}}
+    {{emp.age}}
+    {{emp.salary}}
+    {{emp.join_date}}
+    {{emp.post}}
+{% endfor %}
+
+<h2>query 4</h2>
+{% for emp in query3  %}
+    {{emp.id}}
+    {{emp.name}}
+    {{emp.age}}
+    {{emp.salary}}
+    {{emp.join_date}}
+    {{emp.post}}
+{% endfor %}
+
+<h2>query 5</h2>
+{% for emp in query3  %}
+    {{emp.id}}
+    {{emp.name}}
+    {{emp.age}}
+    {{emp.salary}}
+    {{emp.join_date}}
+    {{emp.post}}
+{% endfor %}
+
+<h2>query 17</h2>
+{% for emp in query3  %}
+    {{emp.id}}
+    {{emp.name}}
+    {{emp.age}}
+    {{emp.salary}}
+    {{emp.join_date}}
+    {{emp.post}}
+{% endfor %}
