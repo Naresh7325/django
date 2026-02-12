@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect 
 from .models import Employee
 from .forms import EmployeeForm,CourseForm,MovieForm,TeamForm
 
@@ -85,7 +85,8 @@ def createEmployeeWithForm(request):
     if request.method == "POST":
         form = EmployeeForm(request.POST)
         form.save() #it same as create
-        return HttpResponse("EMPLOYEE CREATED...")
+        # return HttpResponse("EMPLOYEE CREATED...")
+        return redirect("employeelist")
     else:
         #form object create --> html
         form = EmployeeForm() #form object        
@@ -120,3 +121,28 @@ def createteam(request):
     else:
         form=TeamForm()
         return render(request,"employee/createteam.html",{"form":form})
+
+def deleteemployee(request,id):
+    print("id from url = ",id)
+    Employee.objects.filter(id=id).delete()
+    return redirect("employeelist")
+
+def filteremployee(request):
+    print("filter employee called ...")
+    employee=Employee.objects.filter(age__gte=50).values()
+    print("filter employees =  ",employee)
+    return render (request,"employee/employeelist.html",{"employees":employee})
+
+def sortemployee(request,id):
+      if id==1:
+          employee = Employee.objects.order_by("age").values()
+  
+      elif id==2:
+          employee = Employee.objects.order_by("-age").values()
+          
+      else:
+           employees = Employee.objects.all().values()
+
+      return render (request,"employee/employeelist.html",{"employees":employee})
+
+
