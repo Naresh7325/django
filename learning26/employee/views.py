@@ -4,7 +4,7 @@ from .forms import EmployeeForm,CourseForm,MovieForm,TeamForm
 
 # Create your views here.
 def employeelist(request):
-     employees = Employee.objects.all().values()
+     employees = Employee.objects.all().order_by("id").values()
      print(employees)
      return render (request,"employee/employeelist.html",{"employees":employees})
 
@@ -145,4 +145,12 @@ def sortemployee(request,id):
 
       return render (request,"employee/employeelist.html",{"employees":employee})
 
-
+def updateemployee(request,id):
+    employee=Employee.objects.get(id=id)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST,instance=employee)
+        form.save()
+        return redirect("employeelist")
+    else:
+        form = EmployeeForm(instance=employee)    
+        return render(request,"employee/updateemployee.html",{"form":form})
