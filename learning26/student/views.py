@@ -24,7 +24,6 @@ def createservice(request):
         if form.is_valid():
             form.save()
             return redirect("serviceList")
-
         else:
             return render(request,"student/createService.html",{"form":form})    
     else:
