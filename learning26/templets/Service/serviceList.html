@@ -1,0 +1,27 @@
+<h1>EMPLOYEE SERVICE 
+</h1>
+<a href="{% url 'createServiceWithForm'%}">CREATE SERVICES<a/>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Cost</th>
+    </tr>
+
+    {% for s in service %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.serviceName }}</td>
+        <td>{{ s.serviceType }}</td>
+        <td>{{ s.serviceDate }}</td>
+        <td>{{ s.cost }}</td>
+        <td>
+            <a href="{% url 'deleteservice' s.id %}">Delete</a>
+            <a href="{% url 'updateservice'  s.id  %}">Update </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>

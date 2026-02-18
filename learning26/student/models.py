@@ -66,7 +66,7 @@ class category(models.Model):
     def __str__(self):
         return self.categoryName
 
-class service(models.Model):
+class Service(models.Model):
     serviceName=models.CharField(max_length=100)
     serviceDescription=models.TextField()
     servicePrice=models.IntegerField()
